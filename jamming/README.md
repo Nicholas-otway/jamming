@@ -1,70 +1,146 @@
-# Getting Started with Create React App
+# Jammming Guides #
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Section 1: Create a React Application ##
 
-## Available Scripts
+1. **Setting Up Your Project Structure**
 
-In the project directory, you can run:
+   To begin building your website, follow these steps to set up the directory structure and add necessary CSS presets:
 
-### `npm start`
+   - Create a new directory named "Jammming" for your React application.
+   - In the `public` folder, place the `reset.css` file to reset default styles.
+   - Add the Google Fonts "Poppins" and "Work Sans" by linking them in the `index.html` file.
+   - Replace the existing favicon with an updated one.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+2. **Creating a Boilerplate React App**
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+   Create a new React application by running the following command in your project directory:
 
-### `npm test`
+   ```bash
+   npx create-react-app .
+   ```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+3. **Updating the Title**
 
-### `npm run build`
+   In the `public/index.html` file, update the `<title>` value to "Jammming".
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+4. **Removing Unused Files**
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+   Remove the following files from the `src` folder, as they won't be used in this project:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+   - `App.test.js`
+   - `logo.svg`
 
-### `npm run eject`
+5. **Organizing Components**
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+   Create a directory named `Components` within the `src` directory. Inside this directory, you'll organize your components.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Section 2: Create Static Components ##
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+6. **Creating App Component**
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+   Create a new directory called `App` inside the `Components` directory. Move the `App.js` and `App.css` files to this new directory. Update the path in `index.js` to reflect this change.
 
-## Learn More
+7. **Creating SearchBar Component**
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+   - Create a directory called `SearchBar` inside the `Components` directory.
+   - Inside `SearchBar`, add `SearchBar.js` and `SearchBar.css` files.
+   - In `SearchBar.js`, create a component named `SearchBar` with a `render` method that returns the necessary HTML structure.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+8. **Creating SearchResults Component**
 
-### Code Splitting
+   Follow similar steps to create the `SearchResults` and `Playlist` components.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+9. **Creating Playlist Component**
 
-### Analyzing the Bundle Size
+   Continue creating the `Playlist`, `TrackList`, and `Track` components following the provided guidelines.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## Section 3: Pass Down Search Result and Render Result List ##
 
-### Making a Progressive Web App
+10. **Passing Down Search Results**
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+    - In `App.js`, create a constructor function and set an initial value for `this.state.searchResults`.
+    - Pass the `searchResults` state from `App` to `SearchResults` component.
 
-### Advanced Configuration
+11. **Rendering Search Results**
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+    - Inside `SearchResults`, use the `map()` method to render each track in the `tracks` property.
 
-### Deployment
+## Section 4: Pass Down Playlist to TrackList ##
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+12. **Passing Down Playlist**
 
-### `npm run build` fails to minify
+    - In `App.js`, add default values for `playlistName` and `playlistTracks` in the state.
+    - Pass `playlistName` and `playlistTracks` from `App` to `Playlist` component.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+13. **Rendering Playlist**
+
+    - Inside `Playlist`, use the `map()` method to render each track in the `playlistTracks` property.
+
+## Section 5: Add Tracks to a Playlist ##
+
+14. **Implementing Adding Tracks**
+
+    - In `App.js`, create a method called `addTrack()` that adds a track to the playlist.
+    - Pass `addTrack()` through components to enable adding tracks to the playlist.
+
+## Section 6: Remove Tracks from a Playlist ##
+
+15. **Implementing Removing Tracks**
+
+    - In `App.js`, create a method called `removeTrack()` to remove tracks from the playlist.
+    - Pass `removeTrack()` through components to enable removing tracks from the playlist.
+
+## Section 7: Change the Name of a Playlist ##
+
+16. **Implementing Changing Playlist Name**
+
+    - In `App.js`, create a method called `updatePlaylistName()` to update the playlist name.
+    - Pass `updatePlaylistName()` to allow changing the playlist name.
+
+## Section 8: Create a Method that Saves the Playlist to a User's Account ##
+
+17. **Implementing Saving Playlist**
+
+    - In `App.js`, create a method called `savePlaylist()` to save the playlist to the user's Spotify account.
+    - Pass `savePlaylist()` through components to allow saving the playlist.
+
+## Section 9: Hook up Search Bar to Spotify Search ##
+
+18. **Implementing Spotify Search**
+
+    - In `Spotify.js`, create a method called `getAccessToken()` to retrieve the user's access token.
+    - Create a method called `search()` in `Spotify.js` that queries the Spotify API for search results.
+
+19. **Using Search in App**
+
+    - In `App.js`, use the `Spotify.search()` method to update the `searchResults` state.
+
+## Section 10: Spotify Access Token ##
+
+20. **Retrieving Spotify Access Token**
+
+    - Complete the `getAccessToken()` method in `Spotify.js` to retrieve the access token using the implicit grant flow.
+
+## Section 11: Implement Spotify Search Request ##
+
+21. **Implementing Spotify Search Request**
+
+    - Complete the `search()` method in `Spotify.js` to make a request to the Spotify API for search results.
+
+## Section 12: Save a User's Playlist ##
+
+22. **Implementing Saving User's Playlist**
+
+    - In `Spotify.js`, create a method called `savePlaylist()` to save the user's playlist to their Spotify account.
+
+## Section 13: Deploy (Optional) ##
+
+23. **Deploying the App**
+
+    - Install `surge` globally using `npm install --global surge`.
+    - Create a domain name for your app in the format `SOME_NAME.surge.sh`.
+    - Update the `redirectURI` in `Spotify.js` and in your Spotify application settings.
+    - Build your app using `npm run build`.
+    - Run `surge` in the `build` directory and follow the steps to deploy your app.
+
+Congratulations! You've successfully built and deployed your Jammming app.
